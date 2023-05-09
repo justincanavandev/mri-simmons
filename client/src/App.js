@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import './App.css';
 import Home from "./pages/Home";
+import axios from 'axios';
 import { UserContext } from "./utils/UserContext"
 
 
 function App() {
-
   const [user, setUser] = useState("justin")
+
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
