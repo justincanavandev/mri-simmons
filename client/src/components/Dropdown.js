@@ -23,9 +23,9 @@ const { user, setUser } = useContext(UserContext)
     label="Author"
     // onChange={handleChange}
   >
-    <MenuItem value={10}>Ten</MenuItem>
+    {/* <MenuItem value={10}>Ten</MenuItem>
     <MenuItem value={20}>Twenty</MenuItem>
-    <MenuItem value={30}>Thirty</MenuItem>
+    <MenuItem value={30}>Thirty</MenuItem> */}
   </Select>
 </FormControl>
 </Grid>
@@ -39,9 +39,9 @@ const { user, setUser } = useContext(UserContext)
     label="Author"
     // onChange={handleChange}
   >
-    <MenuItem value={2}>2</MenuItem>
+    {/* <MenuItem value={2}>2</MenuItem>
     <MenuItem value={5}>5</MenuItem>
-    <MenuItem value={10}>10</MenuItem>
+    <MenuItem value={10}>10</MenuItem> */}
   </Select>
 </FormControl>
 </Grid>
