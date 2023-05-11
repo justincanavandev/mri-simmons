@@ -31,7 +31,7 @@ const { user, setUser } = useContext(UserContext)
 </Grid>
 <Grid xs={6}>
     <FormControl fullWidth>
-  <InputLabel id="demo-simple-select-label">Author</InputLabel>
+  <InputLabel id="demo-simple-select-label">Count</InputLabel>
   <Select
     labelId="demo-simple-select-label"
     id="demo-simple-select"
