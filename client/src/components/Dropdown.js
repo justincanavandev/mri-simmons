@@ -11,29 +11,40 @@ const { posts, setPosts } = useContext(UserContext)
 // console.log(posts[0].posts[0])
 
 
-let authorPostID = authors.map(el => el.posts)
-console.log(authorPostID)
+let authorPosts = authors.map(el => el.posts)
+// console.log(authorPosts)
 
-let newArr = authorPostID.map(el => el[0])
-console.log(newArr)
+let authorPostIds = authorPosts.map(el => el[0])
+// console.log(authorPostIds)
 
 let postID = posts.map(el => el._id)
-console.log(postID)
+// console.log(postID)
 
-for (let i=0; i<newArr.length; i++) {
-  if (newArr[i]===postID[2]) {
-    console.log('newArr[i] ' + newArr[i])
+let matchedPosts = [];
+
+
+function handleClick(el) {
+  // e.preventDefault()
+  // console.log(e.target.value)
+  console.log(el.posts[0])
+ 
+
+  for (let i=0; i<el.posts.length; i++) {
+
+    for (let j=0; j<postID.length; j++) {
+      // console.log(el.posts[i])
+      // console.log(postID[j])
+      if(el.posts[i]===postID[j]) {
+        console.log(posts[j])
+        matchedPosts.push(posts[j])
+        console.log(matchedPosts)
+      }
+    }
   }
 }
 
 
-// if (authorPostID === postID) {
-//   console.log(authorPostID)
-// }
-
-
-
-console.log(posts)
+console.log(matchedPosts);
 
   return (
     <>
@@ -49,7 +60,9 @@ console.log(posts)
     // onChange={handleChange}
   >
 
-     {authors.map(el =><MenuItem>{el.name}</MenuItem>)}
+     {authors.map(el =><MenuItem 
+     onClick={() => handleClick(el)}>
+      {el.name}</MenuItem>)}
   </Select>
 </FormControl>
 </Grid>
