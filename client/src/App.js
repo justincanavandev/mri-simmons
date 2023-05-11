@@ -8,41 +8,39 @@ import { Select, MenuItem } from '@mui/material'
 
 function App() {
   const [authors, setAuthors] = useState([])
+  const [posts, setPosts] = useState([])
 
   useEffect(() => {
     axios.get('api/authors')
     .then(res => {
         const authorData = res.data;
-        console.log(authorData)
+        // console.log(authorData)
       let nameArr = authorData.map(el => el.name)
-      console.log(nameArr)
+      // console.log(nameArr)
 
-      setAuthors(nameArr)
+      setAuthors(authorData)
 
-        console.log('data received!')
-      // setAuthors([data[0].name, data[1].name])
-
+        // console.log('data received!')
     })
     .catch(err => {
         console.log(err) 
     })
 }, [])
-console.log(authors)
+  
+async function fetchPosts() {
+  let postsResponse = await axios('api/posts')
+  let posts = await postsResponse.data;
+  setPosts(posts)
+}
+useEffect(() =>{
+  fetchPosts();
+}, [])
+// console.log(posts);
 
   return (
-    <UserContext.Provider value={{ authors, setAuthors }}>
+    <UserContext.Provider value={{ authors, setAuthors, posts, setPosts }}>
     <div className="App">
     <>
-    <Select
-    labelId="demo-simple-select-label"
-    id="demo-simple-select"
-    // value={age}
-    label="Author"
-    // onChange={handleChange}
-  >
-{authors.map(el =><MenuItem>{el}</MenuItem>)}
-    
-  </Select>
       <Home/>
       </>
     </div>

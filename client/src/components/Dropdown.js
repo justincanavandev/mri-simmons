@@ -6,12 +6,37 @@ import { UserContext } from '../utils/UserContext'
 
 const Dropdown = () => {
 
-const { user, setUser } = useContext(UserContext)
+const { authors, setAuthor } = useContext(UserContext)
+const { posts, setPosts } = useContext(UserContext)
+// console.log(posts[0].posts[0])
+
+
+let authorPostID = authors.map(el => el.posts)
+console.log(authorPostID)
+
+let newArr = authorPostID.map(el => el[0])
+console.log(newArr)
+
+let postID = posts.map(el => el._id)
+console.log(postID)
+
+for (let i=0; i<newArr.length; i++) {
+  if (newArr[i]===postID[2]) {
+    console.log('newArr[i] ' + newArr[i])
+  }
+}
+
+
+// if (authorPostID === postID) {
+//   console.log(authorPostID)
+// }
+
+
+
+console.log(posts)
 
   return (
     <>
-    <p>{user}</p>
-    <button onClick={()=> setUser('steven')}change value></button>
   <Grid container >
   <Grid xs={6}>
     <FormControl fullWidth>
@@ -23,9 +48,8 @@ const { user, setUser } = useContext(UserContext)
     label="Author"
     // onChange={handleChange}
   >
-    {/* <MenuItem value={10}>Ten</MenuItem>
-    <MenuItem value={20}>Twenty</MenuItem>
-    <MenuItem value={30}>Thirty</MenuItem> */}
+
+     {authors.map(el =><MenuItem>{el.name}</MenuItem>)}
   </Select>
 </FormControl>
 </Grid>
@@ -39,9 +63,9 @@ const { user, setUser } = useContext(UserContext)
     label="Author"
     // onChange={handleChange}
   >
-    {/* <MenuItem value={2}>2</MenuItem>
+    <MenuItem value={2}>2</MenuItem>
     <MenuItem value={5}>5</MenuItem>
-    <MenuItem value={10}>10</MenuItem> */}
+    <MenuItem value={10}>10</MenuItem>
   </Select>
 </FormControl>
 </Grid>
