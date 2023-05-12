@@ -9,6 +9,8 @@ import {
   Typography,
 } from "@mui/material";
 
+import './components.css'
+
 import { UserContext } from "../utils/UserContext";
 
 const Dropdown = () => {
@@ -33,10 +35,10 @@ const Dropdown = () => {
 
   return (
     <>
-      <Grid container>
+      <Grid className='dropdown' container>
         <Grid xs={6}>
-          <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">Author</InputLabel>
+          <FormControl  fullWidth>
+            <InputLabel >Author</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -52,7 +54,7 @@ const Dropdown = () => {
         </Grid>
         <Grid xs={6}>
           <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">Count</InputLabel>
+            <InputLabel >Count</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
