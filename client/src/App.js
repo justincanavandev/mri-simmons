@@ -9,6 +9,7 @@ import { Select, MenuItem } from '@mui/material'
 function App() {
   const [authors, setAuthors] = useState([])
   const [posts, setPosts] = useState([])
+  const [ matchedPosts, setMatchedPosts ] = useState([]);
 
   useEffect(() => {
     axios.get('api/authors')
@@ -38,7 +39,7 @@ useEffect(() =>{
 // console.log(posts);
 
   return (
-    <UserContext.Provider value={{ authors, setAuthors, posts, setPosts }}>
+    <UserContext.Provider value={{ authors, setAuthors, posts, setPosts, matchedPosts, setMatchedPosts }}>
     <div className="App">
     <>
       <Home/>
