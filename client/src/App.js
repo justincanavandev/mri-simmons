@@ -3,6 +3,9 @@ import "./App.css";
 import Home from "./pages/Home";
 import axios from "axios";
 import { UserContext } from "./utils/UserContext";
+import {
+  Container
+} from "@mui/material";
 
 function App() {
   const [authors, setAuthors] = useState([]);
@@ -14,7 +17,6 @@ function App() {
       .get("api/authors")
       .then((res) => {
         const authorData = res.data;
-        let nameArr = authorData.map((el) => el.name);
         setAuthors(authorData);
 
         console.log("data received!");
@@ -44,9 +46,11 @@ function App() {
         setMatchedPosts,
       }}
     >
-      <div className="App">
+      <div>
         <>
+        <Container fixed>
           <Home />
+          </Container>
         </>
       </div>
     </UserContext.Provider>
