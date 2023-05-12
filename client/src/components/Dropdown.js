@@ -14,9 +14,7 @@ import { UserContext } from "../utils/UserContext";
 const Dropdown = () => {
   const { authors, setAuthor } = useContext(UserContext);
   const { posts, setPosts } = useContext(UserContext);
-  const [ matchedPosts, setMatchedPosts ] = useState([]);
-
-  // let authorPosts = authors.map(el => el.posts)
+  const { matchedPosts, setMatchedPosts } = useContext(UserContext);
 
   let postID = posts.map((el) => el._id);
 
@@ -70,18 +68,6 @@ const Dropdown = () => {
         </Grid>
       </Grid>
 
-
-
-      {matchedPosts.map((el) => (
-        <Card variant="outlined">
-          <Typography variant="h5" >
-            {el.title}
-          </Typography>
-          <Typography variant="body1">
-            {el.body}
-          </Typography>
-        </Card>
-      ))}
     </>
   );
 };
