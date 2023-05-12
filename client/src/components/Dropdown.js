@@ -9,7 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 
-import './components.css'
+import "./components.css";
 
 import { UserContext } from "../utils/UserContext";
 
@@ -18,7 +18,7 @@ const Dropdown = () => {
   const { posts, setPosts } = useContext(UserContext);
   const { matchedPosts, setMatchedPosts } = useContext(UserContext);
 
-  let postID = posts.map(onePost => onePost.userId);
+  let postID = posts.map((onePost) => onePost.userId);
   console.log(typeof postID[1]);
 
   let matchedArr = [];
@@ -35,29 +35,35 @@ const Dropdown = () => {
   //   setMatchedPosts(matchedArr);
   // }
 
-function handleClick(el) {
-  console.log(el)
-  // for (let i=0; i<el.length; i++) {
+  function handleClick(el) {
+    console.log(el);
+    let userId = el.id;
 
     for (let i = 0; i < postID.length; i++) {
-      console.log(el.id)
-            if (el.id === postID[i]) {
-              matchedArr.push(postID[i]);
-            }
-          }
-        // }
-        setMatchedPosts(matchedArr);
-    
+      console.log(el.id);
+      if (userId === postID[i]) {
+        matchedArr.push(posts[i]);
       }
-      console.log(matchedPosts);
+    }
+    setMatchedPosts(matchedArr);
+  }
+  console.log(matchedPosts);
+
+    // for (let i = 0; i < posts.length; i++) {
+    //   console.log(el.id);
+    //   if (post.id === postID[i]) {
+    //     matchedArr.push(postID[i]);
+    //   }
+    // }
+    // setMatchedPosts(matchedArr);
 
 
   return (
     <>
-      <Grid className='dropdown' container>
+      <Grid className="dropdown" container>
         <Grid xs={6}>
-          <FormControl  fullWidth>
-            <InputLabel >Author</InputLabel>
+          <FormControl fullWidth>
+            <InputLabel>Author</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -73,7 +79,7 @@ function handleClick(el) {
         </Grid>
         <Grid xs={6}>
           <FormControl fullWidth>
-            <InputLabel >Count</InputLabel>
+            <InputLabel>Count</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -88,7 +94,6 @@ function handleClick(el) {
           </FormControl>
         </Grid>
       </Grid>
-
     </>
   );
 };

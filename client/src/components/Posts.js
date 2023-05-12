@@ -16,8 +16,6 @@ import './components.css'
     const { posts, setPosts } = useContext(UserContext);
     const { matchedPosts, setMatchedPosts } = useContext(UserContext);
 
-
-
     return (
       <>
         {matchedPosts.map((el) => (
