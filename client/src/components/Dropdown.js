@@ -18,21 +18,39 @@ const Dropdown = () => {
   const { posts, setPosts } = useContext(UserContext);
   const { matchedPosts, setMatchedPosts } = useContext(UserContext);
 
-  let postID = posts.map((el) => el.id);
-  console.log(postID);
+  let postID = posts.map(onePost => onePost.userId);
+  console.log(typeof postID[1]);
 
   let matchedArr = [];
 
-  function handleClick(el) {
-    for (let i = 0; i < el.posts.length; i++) {
-      for (let j = 0; j < postID.length; j++) {
-        if (el.posts[i] === postID[j]) {
-          matchedArr.push(posts[j]);
-        }
+  // function handleClick(el) {
+  //   console.log(el)
+  //   for (let i = 0; i < el.posts.length; i++) {
+  //     for (let j = 0; j < postID.length; j++) {
+  //       if (el.posts[i] === postID[j]) {
+  //         matchedArr.push(posts[j]);
+  //       }
+  //     }
+  //   }
+  //   setMatchedPosts(matchedArr);
+  // }
+
+function handleClick(el) {
+  console.log(el)
+  // for (let i=0; i<el.length; i++) {
+
+    for (let i = 0; i < postID.length; i++) {
+      console.log(el.id)
+            if (el.id === postID[i]) {
+              matchedArr.push(postID[i]);
+            }
+          }
+        // }
+        setMatchedPosts(matchedArr);
+    
       }
-    }
-    setMatchedPosts(matchedArr);
-  }
+      console.log(matchedPosts);
+
 
   return (
     <>
