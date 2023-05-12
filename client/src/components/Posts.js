@@ -28,7 +28,7 @@ import './components.css'
               <Typography variant="body1">
                 {el.body}
               </Typography>
-              <Badge badgeContent={el.comments.length} color="primary">
+              <Badge badgeContent='hello' color="primary">
   {/* <MailIcon color="action" /> */}
 </Badge>
             </Card>

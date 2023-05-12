@@ -14,11 +14,12 @@ import './components.css'
 import { UserContext } from "../utils/UserContext";
 
 const Dropdown = () => {
-  const { authors, setAuthor } = useContext(UserContext);
+  const { users, setUser } = useContext(UserContext);
   const { posts, setPosts } = useContext(UserContext);
   const { matchedPosts, setMatchedPosts } = useContext(UserContext);
 
-  let postID = posts.map((el) => el._id);
+  let postID = posts.map((el) => el.id);
+  console.log(postID);
 
   let matchedArr = [];
 
@@ -46,7 +47,7 @@ const Dropdown = () => {
               label="Author"
               // onChange={handleChange}
             >
-              {authors.map((el) => (
+              {users.map((el) => (
                 <MenuItem onClick={() => handleClick(el)}>{el.name}</MenuItem>
               ))}
             </Select>
