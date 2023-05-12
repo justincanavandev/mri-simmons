@@ -1,10 +1,5 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import {
-    FormControl,
-    InputLabel,
-    Select,
-    MenuItem,
-    Grid,
     Card,
     Typography,
   } from "@mui/material";
@@ -12,24 +7,9 @@ import {
   import { UserContext } from "../utils/UserContext";
 
   const Posts = () => {
-    const { authors, setAuthor } = useContext(UserContext);
     const { posts, setPosts } = useContext(UserContext);
-    const [ matchedPosts, setMatchedPosts ] = useState([]);
+    const { matchedPosts, setMatchedPosts } = useContext(UserContext);
 
-    let postID = posts.map((el) => el._id);
-
-  let matchedArr = [];
-
-//   function handleClick(el) {
-//     for (let i = 0; i < el.posts.length; i++) {
-//       for (let j = 0; j < postID.length; j++) {
-//         if (el.posts[i] === postID[j]) {
-//           matchedArr.push(posts[j]);
-//         }
-//       }
-//     }
-//     setMatchedPosts(matchedArr);
-//   }
 
     return (
       <>
