@@ -16,8 +16,6 @@ import './components.css'
     const { posts, setPosts } = useContext(UserContext);
     const { matchedPosts, setMatchedPosts } = useContext(UserContext);
 
-
-
     return (
       <>
         {matchedPosts.map((el) => (
@@ -28,7 +26,7 @@ import './components.css'
               <Typography variant="body1">
                 {el.body}
               </Typography>
-              <Badge badgeContent={el.comments.length} color="primary">
+              <Badge badgeContent='hello' color="primary">
   {/* <MailIcon color="action" /> */}
 </Badge>
             </Card>
