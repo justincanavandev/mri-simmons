@@ -42,8 +42,8 @@ function App() {
       })
       }, []);
 
-      console.log(posts); //post.id
-      console.log(comments) //comment.postId
+      // console.log(posts); //post.id
+      // console.log(comments) //comment.postId
 
   return (
     <UserContext.Provider

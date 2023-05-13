@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Card, Typography, Badge } from "@mui/material";
 
 import "./components.css";
@@ -10,6 +10,13 @@ import { UserContext } from "../utils/UserContext";
 const Posts = () => {
   const { matchedPosts, setMatchedPosts } = useContext(UserContext);
   const { matchedComments, setMatchedComments } = useContext(UserContext);
+
+// let commentsLength = matchedComments.length;
+// console.log(commentsLength);
+
+
+
+
 
   return (
     <>
