@@ -11,12 +11,8 @@ const Posts = () => {
   const { matchedPosts, setMatchedPosts } = useContext(UserContext);
   const { matchedComments, setMatchedComments } = useContext(UserContext);
 
-// let commentsLength = matchedComments.length;
-// console.log(commentsLength);
-
-
-
-
+  let matchedCommentsLength = matchedComments.length;
+  console.log(matchedCommentsLength);
 
   return (
     <>
@@ -24,7 +20,7 @@ const Posts = () => {
         <Card className="post-padding" variant="outlined">
           <Typography variant="h5">{el.title}</Typography>
           <Typography variant="body1">{el.body}</Typography>
-          <Badge badgeContent="hello" color="primary">
+          <Badge badgeContent={matchedCommentsLength} color="primary">
             {/* <MailIcon color="action" /> */}
           </Badge>
         </Card>

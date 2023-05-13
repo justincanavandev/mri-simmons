@@ -17,24 +17,16 @@ const Dropdown = () => {
   const { users, setUser } = useContext(UserContext);
   const { posts, setPosts } = useContext(UserContext);
   const { comments, setComments } = useContext(UserContext);
-  const { matchedComments, setMatchedComments} = useContext(UserContext)
-  
-
-  const [matchedCommentsLength, setMatchedCommentsLength] = useState([])
-
+  const { matchedComments, setMatchedComments } = useContext(UserContext);
   const { matchedPosts, setMatchedPosts } = useContext(UserContext);
 
   let postID = posts.map((onePost) => onePost.userId);
-  // console.log(posts)
 
   let matchedArr = [];
   let commentsArr = [];
-  let matchedCommentsArr = [];
 
   function handleClick(el) {
     let userId = el.id;
-    // console.log(userId)
- 
 
     for (let i = 0; i < postID.length; i++) {
       if (userId === postID[i]) {
@@ -43,29 +35,13 @@ const Dropdown = () => {
     }
     setMatchedPosts(matchedArr);
 
-
-  for (let i=0; i<matchedPosts.length; i++) {
-    console.log(matchedPosts[i])
-    for (let j=0; j<comments.length; j++) {
-      if(matchedPosts[i].id===comments[j].postId) {
-        commentsArr.push(comments[j])
+    for (let i = 0; i < comments.length; i++) {
+      if (matchedPosts[userId].id === comments[i].postId) {
+        commentsArr.push(comments[i]);
       }
     }
+    setMatchedComments(commentsArr);
   }
-  setMatchedComments(commentsArr)
-
-  for (let i=0; i<matchedComments.length; i++) {
-  
-    if(matchedPosts[userId].id===matchedComments[i].postId) {
-      matchedCommentsArr.push(matchedComments[i])
-    }
-}
-
-setMatchedCommentsLength(matchedCommentsArr.length)
-
-}
-
-
 
   return (
     <>
