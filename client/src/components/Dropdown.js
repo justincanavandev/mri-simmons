@@ -16,47 +16,37 @@ import { UserContext } from "../utils/UserContext";
 const Dropdown = () => {
   const { users, setUser } = useContext(UserContext);
   const { posts, setPosts } = useContext(UserContext);
+  const { comments, setComments } = useContext(UserContext);
+  const { matchedComments, setMatchedComments} = useContext(UserContext)
+
   const { matchedPosts, setMatchedPosts } = useContext(UserContext);
 
   let postID = posts.map((onePost) => onePost.userId);
-  console.log(typeof postID[1]);
 
   let matchedArr = [];
-
-  // function handleClick(el) {
-  //   console.log(el)
-  //   for (let i = 0; i < el.posts.length; i++) {
-  //     for (let j = 0; j < postID.length; j++) {
-  //       if (el.posts[i] === postID[j]) {
-  //         matchedArr.push(posts[j]);
-  //       }
-  //     }
-  //   }
-  //   setMatchedPosts(matchedArr);
-  // }
+  let commentsArr = [];
 
   function handleClick(el) {
-    console.log(el);
     let userId = el.id;
 
     for (let i = 0; i < postID.length; i++) {
-      console.log(el.id);
       if (userId === postID[i]) {
         matchedArr.push(posts[i]);
       }
     }
     setMatchedPosts(matchedArr);
+
+  for (let i=0; i<matchedPosts.length; i++) {
+    for (let j=0; j<comments.length; j++) {
+      if(matchedPosts[i].id===comments[j].postId) {
+        commentsArr.push(comments[j])
+      }
+    }
   }
-  console.log(matchedPosts);
-
-    // for (let i = 0; i < posts.length; i++) {
-    //   console.log(el.id);
-    //   if (post.id === postID[i]) {
-    //     matchedArr.push(postID[i]);
-    //   }
-    // }
-    // setMatchedPosts(matchedArr);
-
+  setMatchedComments(commentsArr)
+}
+console.log(matchedPosts);
+console.log(matchedComments);
 
   return (
     <>
@@ -87,9 +77,9 @@ const Dropdown = () => {
               label="Author"
               // onChange={handleChange}
             >
-              <MenuItem value={2}>2</MenuItem>
+              {/* <MenuItem value={2}>2</MenuItem>
               <MenuItem value={5}>5</MenuItem>
-              <MenuItem value={10}>10</MenuItem>
+              <MenuItem value={10}>10</MenuItem> */}
             </Select>
           </FormControl>
         </Grid>
