@@ -20,10 +20,14 @@ const Dropdown = () => {
   const { matchedComments, setMatchedComments } = useContext(UserContext);
   const { matchedPosts, setMatchedPosts } = useContext(UserContext);
 
+  const [postCount, setPostCount] = useState([2,5,10])
+
   let postID = posts.map((onePost) => onePost.userId);
 
   let matchedArr = [];
   let commentsArr = [];
+  let countMatchedArr = [];
+  const [ countMatchPosts, setCountMatchPosts ] = useState([]);
 
   function handleClick(el) {
     let userId = el.id;
@@ -43,6 +47,24 @@ const Dropdown = () => {
     setMatchedComments(commentsArr);
   }
 
+  function postClick(el) {
+    console.log(matchedPosts)
+    console.log(el.length)
+
+    if (el===2 || el===5 || el===10) {
+      for (let i=0; i<el; i++) {
+        console.log(matchedPosts[i])
+        countMatchedArr.push(posts[i]) 
+      } 
+      // setCountMatchPosts(countMatchedArr)
+      setMatchedPosts(countMatchedArr) 
+   
+    } 
+  }
+  console.log(matchedPosts)
+// 
+  // console.log(countMatchPosts)
+
   return (
     <>
       <Grid className="dropdown" container>
@@ -52,9 +74,7 @@ const Dropdown = () => {
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              // value={age}
               label="Author"
-              // onChange={handleChange}
             >
               {users.map((el) => (
                 <MenuItem onClick={() => handleClick(el)}>{el.name}</MenuItem>
@@ -68,13 +88,12 @@ const Dropdown = () => {
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
-              // value={age}
               label="Author"
-              // onChange={handleChange}
             >
-              {/* <MenuItem value={2}>2</MenuItem>
-              <MenuItem value={5}>5</MenuItem>
-              <MenuItem value={10}>10</MenuItem> */}
+              {postCount.map(el=> 
+              <MenuItem onClick={() => postClick(el)}>{el}</MenuItem>
+              )}
+             
             </Select>
           </FormControl>
         </Grid>

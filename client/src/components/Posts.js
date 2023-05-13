@@ -12,7 +12,6 @@ const Posts = () => {
   const { matchedComments, setMatchedComments } = useContext(UserContext);
 
   let matchedCommentsLength = matchedComments.length;
-  console.log(matchedCommentsLength);
 
   return (
     <>
