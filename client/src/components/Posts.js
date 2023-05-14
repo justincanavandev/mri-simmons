@@ -37,23 +37,24 @@ const Posts = () => {
         ? selectedPosts.map((el) => (
             <Card className="post-padding" variant="outlined">
               <Typography variant="h5">{el.title} HELLO</Typography>
-              <Typography variant="body1">{el.body}</Typography>
+              <Typography className='post-body' variant="body1">{el.body}</Typography>
               <Badge badgeContent={matchedCommentsLength} color="primary">
-                {/* <MailIcon color="action" /> */}
+               
+                 <CommentIcon/>
               </Badge>
             </Card>
           ))
         : matchedPosts.map((el) => (
             <Card className="post-padding" variant="outlined">
               <Typography variant="h5">{el.title}</Typography>
-              <Typography variant="body1">{el.body}</Typography>
+              <Typography className='post-body' variant="body1">{el.body}</Typography>
               <Badge badgeContent={matchedCommentsLength} color="primary">
-                
+                <CommentIcon />
               </Badge>
             </Card>
           ))}
 
-      {selectedPosts.length === matchedPosts.length ? (
+      {selectedPosts.length === matchedPosts.length || selectedPosts.length===0 ? (
         <div className="button-margin">
           <Button
             onClick={() => showMore()}
