@@ -19,15 +19,15 @@ const Dropdown = () => {
   const { comments, setComments } = useContext(UserContext);
   const { matchedComments, setMatchedComments } = useContext(UserContext);
   const { matchedPosts, setMatchedPosts } = useContext(UserContext);
-
-  const [postCount, setPostCount] = useState([2,5,10])
+  const { postCount, setPostCount } = useContext(UserContext);
+  const { selectedPosts, setSelectedPosts } = useContext(UserContext);
+  const { postsLength, setPostsLength } = useContext(UserContext);
 
   let postID = posts.map((onePost) => onePost.userId);
 
   let matchedArr = [];
   let commentsArr = [];
   let countMatchedArr = [];
-  const [ countMatchPosts, setCountMatchPosts ] = useState([]);
 
   function handleClick(el) {
     let userId = el.id;
@@ -48,22 +48,16 @@ const Dropdown = () => {
   }
 
   function postClick(el) {
-    console.log(matchedPosts)
-    console.log(el.length)
+    setPostsLength(el);
 
-    if (el===2 || el===5 || el===10) {
-      for (let i=0; i<el; i++) {
-        console.log(matchedPosts[i])
-        countMatchedArr.push(posts[i]) 
-      } 
-      // setCountMatchPosts(countMatchedArr)
-      setMatchedPosts(countMatchedArr) 
-   
-    } 
+    if (el === 2 || el === 5 || el === 10) {
+      for (let i = 0; i < el; i++) {
+        countMatchedArr.push(matchedPosts[i]);
+      }
+
+      setSelectedPosts(countMatchedArr);
+    }
   }
-  console.log(matchedPosts)
-// 
-  // console.log(countMatchPosts)
 
   return (
     <>
@@ -90,10 +84,9 @@ const Dropdown = () => {
               id="demo-simple-select"
               label="Author"
             >
-              {postCount.map(el=> 
-              <MenuItem onClick={() => postClick(el)}>{el}</MenuItem>
-              )}
-             
+              {postCount.map((el) => (
+                <MenuItem onClick={() => postClick(el)}>{el}</MenuItem>
+              ))}
             </Select>
           </FormControl>
         </Grid>
