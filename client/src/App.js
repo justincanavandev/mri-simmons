@@ -13,6 +13,9 @@ function App() {
   const [users, setUsers] = useState([])
   const [posts, setPosts] = useState([])
   const [comments, setComments] = useState([])
+  const [postCount, setPostCount] = useState([2,5,10])
+  const [selectedPosts, setSelectedPosts] = useState([])
+  const [postsLength, setPostsLength] = useState()
 
   useEffect(() => {
       axios.get('https://jsonplaceholder.typicode.com/users')
@@ -57,7 +60,13 @@ function App() {
         comments,
         setComments,
         matchedComments,
-        setMatchedComments
+        setMatchedComments,
+        postCount,
+        setPostCount,
+        selectedPosts,
+        setSelectedPosts,
+        postsLength,
+        setPostsLength
       }}
     >
       <div>
