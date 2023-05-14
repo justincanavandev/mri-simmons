@@ -3,7 +3,7 @@ import { Card, Typography, Badge, Button } from "@mui/material";
 
 import "./components.css";
 
-import MailIcon from "@material-ui/icons/Mail";
+import CommentIcon from '@mui/icons-material/Comment';
 
 import { UserContext } from "../utils/UserContext";
 
@@ -12,8 +12,8 @@ const Posts = () => {
   const { matchedComments, setMatchedComments } = useContext(UserContext);
   const { selectedPosts, setSelectedPosts } = useContext(UserContext);
   const { postsLength, setPostsLength } = useContext(UserContext);
+  const { matchedCommentsLength, setMatchedCommentsLength } = useContext(UserContext)
 
-  let matchedCommentsLength = matchedComments.length;
 
   let newPostsArr = [];
 
@@ -48,7 +48,7 @@ const Posts = () => {
               <Typography variant="h5">{el.title}</Typography>
               <Typography variant="body1">{el.body}</Typography>
               <Badge badgeContent={matchedCommentsLength} color="primary">
-                {/* <MailIcon color="action" /> */}
+                
               </Badge>
             </Card>
           ))}
