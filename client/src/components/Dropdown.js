@@ -53,7 +53,7 @@ const Dropdown = () => {
 
     for (let i = 0; i < comments.length; i++) {
       console.log(userId)
-      if (matchedPosts[userId] && matchedPosts[userId].id === comments[i].postId) {
+      if (matchedArr[userId] && matchedArr[userId].id === comments[i].postId) {
 
         commentsArr.push(comments[i]);
       }
@@ -73,9 +73,8 @@ const Dropdown = () => {
       for (let i = 0; i < el; i++) {
         countMatchedArr.push(matchedPosts[i]);
       }
-
-      setSelectedPosts(countMatchedArr);
     }
+    setSelectedPosts(countMatchedArr);
   }
 
 
