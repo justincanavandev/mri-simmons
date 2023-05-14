@@ -45,8 +45,6 @@ function App() {
       })
       }, []);
 
-      // console.log(posts); //post.id
-      // console.log(comments) //comment.postId
 
   return (
     <UserContext.Provider
@@ -71,7 +69,7 @@ function App() {
     >
       <div>
         <>
-        <Container fixed>
+        <Container className='container-padding' disableGutters>
           <Home />
           </Container>
         </>

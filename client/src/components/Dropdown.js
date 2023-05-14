@@ -61,7 +61,8 @@ const Dropdown = () => {
 
   return (
     <>
-      <Grid className="dropdown" container>
+    <div>
+      <Grid className="dropdown select-padding" container>
         <Grid xs={6}>
           <FormControl fullWidth>
             <InputLabel>Author</InputLabel>
@@ -69,6 +70,7 @@ const Dropdown = () => {
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               label="Author"
+              className='author-margin'
             >
               {users.map((el) => (
                 <MenuItem onClick={() => handleClick(el)}>{el.name}</MenuItem>
@@ -76,13 +78,16 @@ const Dropdown = () => {
             </Select>
           </FormControl>
         </Grid>
+       
+      
         <Grid xs={6}>
           <FormControl fullWidth>
-            <InputLabel>Count</InputLabel>
+            <InputLabel className='count-margin'>Count</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               label="Author"
+              className='count-margin'
             >
               {postCount.map((el) => (
                 <MenuItem onClick={() => postClick(el)}>{el}</MenuItem>
@@ -91,6 +96,7 @@ const Dropdown = () => {
           </FormControl>
         </Grid>
       </Grid>
+      </div>
     </>
   );
 };

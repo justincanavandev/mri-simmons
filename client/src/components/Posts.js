@@ -21,12 +21,10 @@ const Posts = () => {
     let selectPlusLength = postsLength + selectedPosts.length;
 
     for (let i = 0; i < postsLength; i++) {
-      // console.log(matchedPosts[i]);
       newPostsArr.push(matchedPosts[i]);
     }
 
     for (let i = postsLength; i < selectPlusLength; i++) {
-      // console.log(matchedPosts[i]);
       newPostsArr.push(matchedPosts[i]);
     }
 
@@ -55,13 +53,24 @@ const Posts = () => {
             </Card>
           ))}
 
-        {selectedPosts.length===matchedPosts.length ?
-        <p>There are no more posts!</p> 
-        :
-      <Button onClick={() => showMore()} variant="outlined">
-        Show More
-      </Button>
-}
+      {selectedPosts.length === matchedPosts.length ? (
+        <div className="button-margin">
+          <Button
+            onClick={() => showMore()}
+            variant="outlined"
+            fullWidth
+            disabled
+          >
+            Show More
+          </Button>
+        </div>
+      ) : (
+        <div className="button-margin">
+          <Button onClick={() => showMore()} variant="outlined" fullWidth>
+            Show More
+          </Button>
+        </div>
+      )}
     </>
   );
 };

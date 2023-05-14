@@ -3,8 +3,33 @@
     margin: 2vh 2vw;
   }
 
+.container-padding {
+  padding-bottom: 3vh;
+}
+
 .dropdown {
     /* padding: 1vh 1vw; */
     margin-top: 2vh;
 
 }
+
+.select-padding {
+  padding-left: 2vw;
+  padding-right: 2vw;
+}
+
+.button-margin {
+  margin-left: 2vw;
+  margin-right: 2vw;
+}
+
+.author-margin {
+  margin-right: .5vw;
+}
+
+.count-margin {
+  margin-left: .5vw;
+}
+
+
+
