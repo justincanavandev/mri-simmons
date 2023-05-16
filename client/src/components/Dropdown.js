@@ -98,9 +98,13 @@ const Dropdown = () => {
     }
     setMatchedPosts(matchedArr);
 
+    console.log(posts)
+
     for (let i = 0; i < comments.length; i++) {
-      // console.log(userId)
-      if (matchedArr[userId] && matchedArr[userId].id === comments[i].postId) {
+      console.log(userId)
+      if (matchedArr[userId-1] && matchedArr[userId-1].id === comments[i].postId) {
+        console.log(matchedArr[userId])
+        console.log(comments[i])
 
         commentsArr.push(comments[i]);
       }
@@ -110,6 +114,7 @@ const Dropdown = () => {
     
   }
   setMatchedCommentsLength(matchedComments.length)
+  console.log(matchedComments)
 
 
             //END HANDLECLICK FUNCTION
