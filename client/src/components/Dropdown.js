@@ -28,55 +28,120 @@ const Dropdown = () => {
   let matchedArr = [];
   let commentsArr = [];
   let countMatchedArr = [];
+  let selectedUserPosts = []
+
+  const [selectedUser, setSelectedUser] = useState([])
 
   function handleClick(el) {
     let userId = el.id;
-    console.log(userId);
- 
-    console.log(postID)
+
+    setSelectedUser(el)
+    console.log(postsLength)
+
+
+    if (postsLength === 2 || postsLength === 5 || postsLength === 10) {
+    
+      for (let j=0; j<users.length; j++) {
+        if (users[j].id===userId) {    
+         setSelectedUser(users[j])
   
+      }
+    }
+    console.log(selectedUser)
 
+        // if(selectedPosts.length>0) {
+      console.log(selectedUser.id)
+      for (let i = 0; i < posts.length; i++) {
+        if(posts[i].userId===selectedUser.id) {
+          selectedUserPosts.push(posts[i])
+        }
+      }
+      console.log(selectedUserPosts)
+    // }
+    setSelectedPosts(selectedUserPosts)
+    console.log(selectedUserPosts)
+
+
+      for (let i = 0; i < postsLength; i++) {
+        console.log(matchedPosts[i])
+    
+        countMatchedArr.push(matchedPosts[i]);
+      }
+      setSelectedPosts(countMatchedArr);
+    }
+    console.log(selectedPosts)
+
+    
+
+  
     for (let i = 0; i < postID.length; i++) {
+    
       if (userId === postID[i]) {
-        // console.log(userId)
-        // console.log(postID[i])
-
         matchedArr.push(posts[i]);
       }
-      
+ 
     }
     setMatchedPosts(matchedArr);
 
-    console.log(userId)
-    console.log(matchedArr)
-   
-
     for (let i = 0; i < comments.length; i++) {
-      console.log(userId)
+      // console.log(userId)
       if (matchedArr[userId] && matchedArr[userId].id === comments[i].postId) {
 
         commentsArr.push(comments[i]);
       }
     }
     setMatchedComments(commentsArr);
-    
+ 
     
   }
-  console.log(matchedComments)
   setMatchedCommentsLength(matchedComments.length)
-  console.log(matchedCommentsLength)
+
+
+            //END HANDLECLICK FUNCTION
+
 
   function postClick(el) {
     setPostsLength(el);
 
+    let selectedUserId = selectedUser.id;
+    console.log(selectedUserId)
+
+    console.log(posts)
+
+    for (let i = 0; i < posts.length; i++) {
+      // console.log(selectedUserId)
+      if(posts[i].userId===selectedUserId) {
+        // console.log(selectedUser.name)
+        matchedArr.push(posts[i])
+      }
+    
+    }
+    // console.log(matchedArr)
+ 
+
+    let userId = matchedPosts[0].userId
+
+
     if (el === 2 || el === 5 || el === 10) {
-      for (let i = 0; i < el; i++) {
-        countMatchedArr.push(matchedPosts[i]);
+    
+      for (let i=0; i<users.length; i++) {
+        if (users[i].id===userId) {    
+         setSelectedUser(users[i])
       }
     }
-    setSelectedPosts(countMatchedArr);
-  }
 
+      for (let i = 0; i < el; i++) {
+        console.log(matchedPosts[i])
+    
+        countMatchedArr.push(matchedPosts[i]);
+      }
+      setSelectedPosts(countMatchedArr);
+    }
+    console.log(selectedPosts)
+
+
+  }
+console.log(selectedUser)
 
   return (
     <>
