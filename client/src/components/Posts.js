@@ -36,7 +36,7 @@ const Posts = () => {
       {selectedPosts.length > 1
         ? selectedPosts.map((el) => (
             <Card className="post-padding" variant="outlined">
-              <Typography variant="h5">{el.title} HELLO</Typography>
+              <Typography variant="h5">{el.title} {el.userId}</Typography>
               <Typography className='post-body' variant="body1">{el.body}</Typography>
               <Badge badgeContent={matchedCommentsLength} color="primary">
                
