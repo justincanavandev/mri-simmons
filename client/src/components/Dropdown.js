@@ -60,15 +60,6 @@ const Dropdown = () => {
   console.log(selectedUser)
   console.log(user)
 
-
-      // for (let i = 0; i < posts.length; i++) {
-      //   console.log(posts[i].userId)
-      //   console.log(selectedUser.id)
-      //   if(posts[i].userId===selectedUser.id) {
-      //     selectedUserPosts.push(posts[i])
-      //   }
-      // }
-
       for (let i = 0; i < posts.length; i++) {
         console.log(user[0].id)
         if(posts[i].userId===user[0].id) {
@@ -80,14 +71,6 @@ const Dropdown = () => {
 
 
     console.log(selectedUserPosts)
-
-      // for (let i = 0; i < postsLength; i++) {
-      //   console.log(matchedPosts[i])
-    
-      //   countMatchedArr.push(matchedPosts[i]);
-      // }
-      // setSelectedPosts(countMatchedArr);
-    // } 
 
     for (let i = 0; i < postID.length; i++) {
     
@@ -127,7 +110,6 @@ const Dropdown = () => {
  
     for (let i = 0; i < posts.length; i++) {
       if(posts[i].userId===selectedUserId) {
-
         matchedArr.push(posts[i])
       }
     

@@ -1,7 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react'
-
-
-// const [posts, setPosts] = useState([])
+import React, { createContext } from 'react'
 
 
 export const UserContext = createContext ({})
